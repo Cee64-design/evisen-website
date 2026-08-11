@@ -1,0 +1,8 @@
+:root{
+--shadow-sm:0 2px 8px rgba(8,64,118,.08);
+--shadow-md:0 8px 24px rgba(8,64,118,.10);
+--shadow-lg:0 20px 48px rgba(8,64,118,.14);
+--shadow-warm:0 10px 28px rgba(239,174,15,.16);
+--shadow-teal:0 10px 28px rgba(4,151,159,.14);
+--border-soft:1px solid var(--ise-navy-08);
+}

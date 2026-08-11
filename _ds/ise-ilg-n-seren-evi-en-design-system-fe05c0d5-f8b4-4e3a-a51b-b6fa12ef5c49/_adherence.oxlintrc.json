@@ -1,0 +1,288 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/data-display/**",
+              "components/forms/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Newsreader|Inter|Roboto Mono))/i]",
+        "message": "Font not provided by the design system. Available: Newsreader, Inter, Roboto Mono."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|tone|key|ref|className|style|children)$/]",
+        "message": "<Badge> doesn't accept that prop. Declared props: children, tone."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:blue|teal|gold|navy)$/]",
+        "message": "<Badge> tone must be one of 'blue' | 'teal' | 'gold' | 'navy'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|size|disabled|onClick|type|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: children, variant, size, disabled, onClick, type."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|dark|gold|ghost)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'dark' | 'gold' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:button|submit)$/]",
+        "message": "<Button> type must be one of 'button' | 'submit'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|tone|padding|key|ref|className|style|children)$/]",
+        "message": "<Card> doesn't accept that prop. Declared props: children, tone, padding."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:surface|cyan|pink|navy)$/]",
+        "message": "<Card> tone must be one of 'surface' | 'cyan' | 'pink' | 'navy'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute[name.name='padding'] > Literal[value!=/^(?:sm|lg)$/]",
+        "message": "<Card> padding must be one of 'sm' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Checkbox'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|checked|onChange|disabled|key|ref|className|style|children)$/]",
+        "message": "<Checkbox> doesn't accept that prop. Declared props: label, checked, onChange, disabled."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|placeholder|type|value|onChange|key|ref|className|style|children)$/]",
+        "message": "<Input> doesn't accept that prop. Declared props: label, placeholder, type, value, onChange."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:text|email|tel)$/]",
+        "message": "<Input> type must be one of 'text' | 'email' | 'tel'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|key|ref|className|style|children)$/]",
+        "message": "<Tag> doesn't accept that prop. Declared props: children."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Badge": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "Card": {
+        "replaces": []
+      },
+      "Checkbox": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      },
+      "Tag": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--border-soft",
+      "--color-accent-gold",
+      "--color-accent-teal",
+      "--color-bg",
+      "--color-border",
+      "--color-brand",
+      "--color-brand-strong",
+      "--color-link",
+      "--color-link-hover",
+      "--color-surface",
+      "--color-surface-cyan",
+      "--color-surface-pink",
+      "--color-text-body",
+      "--color-text-heading",
+      "--color-text-inverse",
+      "--color-text-muted",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--ise-bg-cyan",
+      "--ise-bg-pink",
+      "--ise-black",
+      "--ise-blue",
+      "--ise-blue-08",
+      "--ise-blue-16",
+      "--ise-blue-32",
+      "--ise-gold",
+      "--ise-gold-08",
+      "--ise-gold-16",
+      "--ise-gold-32",
+      "--ise-mist",
+      "--ise-navy",
+      "--ise-navy-04",
+      "--ise-navy-08",
+      "--ise-navy-16",
+      "--ise-navy-32",
+      "--ise-teal",
+      "--ise-teal-08",
+      "--ise-teal-16",
+      "--ise-teal-32",
+      "--ise-white",
+      "--leading-body",
+      "--leading-heading",
+      "--leading-tight",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--shadow-lg",
+      "--shadow-md",
+      "--shadow-sm",
+      "--shadow-teal",
+      "--shadow-warm",
+      "--space-1",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--space-9",
+      "--text-body",
+      "--text-h1",
+      "--text-h2",
+      "--text-h3",
+      "--text-mono",
+      "--text-small",
+      "--text-subline",
+      "--tracking-mono",
+      "--tracking-subline",
+      "--weight-body-medium",
+      "--weight-body-regular",
+      "--weight-body-semibold",
+      "--weight-display-bold",
+      "--weight-display-regular"
+    ],
+    "tokenKinds": {
+      "--ise-navy": "color",
+      "--ise-blue": "color",
+      "--ise-teal": "color",
+      "--ise-gold": "color",
+      "--ise-mist": "color",
+      "--ise-bg-cyan": "color",
+      "--ise-bg-pink": "color",
+      "--ise-black": "color",
+      "--ise-white": "color",
+      "--ise-navy-04": "color",
+      "--ise-navy-08": "color",
+      "--ise-navy-16": "color",
+      "--ise-navy-32": "color",
+      "--ise-blue-08": "color",
+      "--ise-blue-16": "color",
+      "--ise-blue-32": "color",
+      "--ise-teal-08": "color",
+      "--ise-teal-16": "color",
+      "--ise-teal-32": "color",
+      "--ise-gold-08": "color",
+      "--ise-gold-16": "color",
+      "--ise-gold-32": "color",
+      "--color-bg": "color",
+      "--color-surface": "color",
+      "--color-surface-cyan": "color",
+      "--color-surface-pink": "color",
+      "--color-border": "color",
+      "--color-text-heading": "font",
+      "--color-text-body": "font",
+      "--color-text-muted": "font",
+      "--color-text-inverse": "font",
+      "--color-brand": "color",
+      "--color-brand-strong": "color",
+      "--color-accent-teal": "color",
+      "--color-accent-gold": "color",
+      "--color-link": "color",
+      "--color-link-hover": "color",
+      "--font-display": "font",
+      "--font-body": "font",
+      "--font-mono": "font",
+      "--text-h1": "font",
+      "--text-h2": "font",
+      "--text-h3": "font",
+      "--text-subline": "font",
+      "--text-body": "font",
+      "--text-small": "font",
+      "--text-mono": "font",
+      "--weight-display-regular": "font",
+      "--weight-display-bold": "font",
+      "--weight-body-regular": "font",
+      "--weight-body-medium": "font",
+      "--weight-body-semibold": "font",
+      "--leading-tight": "font",
+      "--leading-heading": "font",
+      "--leading-body": "font",
+      "--tracking-subline": "font",
+      "--tracking-mono": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--space-9": "spacing",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-pill": "radius",
+      "--shadow-sm": "shadow",
+      "--shadow-md": "shadow",
+      "--shadow-lg": "shadow",
+      "--shadow-warm": "shadow",
+      "--shadow-teal": "shadow",
+      "--border-soft": "color"
+    },
+    "fontFamilies": [
+      "Inter",
+      "Newsreader",
+      "Roboto Mono"
+    ]
+  }
+}

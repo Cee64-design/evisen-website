@@ -1,0 +1,22 @@
+:root{
+--font-display:"Newsreader",Georgia,serif;
+--font-body:"Inter",-apple-system,sans-serif;
+--font-mono:"Roboto Mono",monospace;
+--text-h1:clamp(2.5rem,4vw,4rem);
+--text-h2:clamp(1.75rem,2.6vw,2.5rem);
+--text-h3:clamp(1.25rem,1.8vw,1.75rem);
+--text-subline:.8125rem;
+--text-body:1.0625rem;
+--text-small:.875rem;
+--text-mono:.9375rem;
+--weight-display-regular:450;
+--weight-display-bold:700;
+--weight-body-regular:400;
+--weight-body-medium:500;
+--weight-body-semibold:600;
+--leading-tight:1.1;
+--leading-heading:1.2;
+--leading-body:1.6;
+--tracking-subline:.14em;
+--tracking-mono:.02em;
+}

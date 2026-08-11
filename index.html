@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/ise-ilg-n-seren-evi-en-design-system-fe05c0d5-f8b4-4e3a-a51b-b6fa12ef5c49/fonts/fonts.css">
+<link rel="stylesheet" href="_ds/ise-ilg-n-seren-evi-en-design-system-fe05c0d5-f8b4-4e3a-a51b-b6fa12ef5c49/tokens/colors.css">
+<link rel="stylesheet" href="_ds/ise-ilg-n-seren-evi-en-design-system-fe05c0d5-f8b4-4e3a-a51b-b6fa12ef5c49/tokens/typography.css">
+<link rel="stylesheet" href="_ds/ise-ilg-n-seren-evi-en-design-system-fe05c0d5-f8b4-4e3a-a51b-b6fa12ef5c49/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/ise-ilg-n-seren-evi-en-design-system-fe05c0d5-f8b4-4e3a-a51b-b6fa12ef5c49/tokens/shadows.css">
+<link rel="stylesheet" href="_ds/ise-ilg-n-seren-evi-en-design-system-fe05c0d5-f8b4-4e3a-a51b-b6fa12ef5c49/styles.css">
+<script src="_ds/ise-ilg-n-seren-evi-en-design-system-fe05c0d5-f8b4-4e3a-a51b-b6fa12ef5c49/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:140px}
+body{margin:0;background:#fff;color:var(--color-text-body);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+a{color:var(--color-link);text-decoration:none}
+a:hover{color:var(--color-link-hover)}
+@keyframes iseFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes iseDrift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}}
+@media (max-width:900px){
+html{scroll-padding-top:96px}
+[data-hero]{grid-template-columns:1fr !important;gap:36px !important}
+[data-hero-photo]{order:-1 !important}
+[data-pad]{padding-left:20px !important;padding-right:20px !important;padding-top:64px !important;padding-bottom:64px !important}
+[data-stack]{grid-template-columns:1fr !important;gap:36px !important}
+[data-grid3]{grid-template-columns:1fr !important}
+[data-steps]{grid-template-columns:1fr 1fr !important}
+[data-fixedbg]{background-attachment:scroll !important}
+[data-nav]{display:none !important}
+[data-burger]{display:inline-flex !important}
+[data-headbar]{padding:10px 20px !important}
+[data-headbar] img{height:64px !important}
+#start img[alt^="Ilg"]{height:300px !important}
+[data-hero-cta]{width:100% !important;justify-content:center !important}
+[data-logos]{grid-template-columns:1fr 1fr !important}
+}
+@media (max-width:560px){
+[data-steps]{grid-template-columns:1fr !important}
+}
+</style>
+</helmet>
+
+<div style="width:100%;overflow-x:hidden">
+
+<header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.2);border-bottom:1px solid var(--ise-navy-08)">
+  <div data-headbar style="max-width:1160px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="#start" style="display:flex;align-items:center"><img src="assets/ise-logo-full-color.png" alt="Ilgın Seren Evişen" style="height:100px;width:auto;display:block"></a>
+    <nav data-nav style="display:flex;align-items:center;gap:28px">
+      <a href="#problem" style="font-size:16px;font-weight:500;color:var(--color-text-body)" style-hover="color:var(--ise-blue)">Problem</a>
+      <a href="#loesung" style="font-size:16px;font-weight:500;color:var(--color-text-body)" style-hover="color:var(--ise-blue)">Lösung</a>
+      <a href="#leistungen" style="font-size:16px;font-weight:500;color:var(--color-text-body)" style-hover="color:var(--ise-blue)">Leistungen</a>
+      <a href="#zusammenarbeit" style="font-size:16px;font-weight:500;color:var(--color-text-body)" style-hover="color:var(--ise-blue)">Ablauf</a>
+      <a href="#pakete" style="font-size:16px;font-weight:500;color:var(--color-text-body)" style-hover="color:var(--ise-blue)">Pakete</a>
+      <a href="#faq" style="font-size:16px;font-weight:500;color:var(--color-text-body)" style-hover="color:var(--ise-blue)">FAQ</a>
+      <a href="#kontakt" style="display:inline-flex;align-items:center;padding:10px 22px;border-radius:var(--radius-pill);background:var(--ise-navy);color:#fff;font-size:16px;font-weight:600" style-hover="background:var(--ise-gold);color:var(--ise-navy)">Erstgespräch</a>
+    </nav>
+    <button type="button" data-burger onClick="{{ toggleMenu }}" aria-label="Menü öffnen" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;border:none;background:var(--ise-navy);border-radius:14px;cursor:pointer;flex-direction:column;gap:5px">
+      <span style="display:block;width:20px;height:2px;background:#fff"></span>
+      <span style="display:block;width:20px;height:2px;background:#fff"></span>
+      <span style="display:block;width:20px;height:2px;background:#fff"></span>
+    </button>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:4px;padding:8px 20px 20px;border-top:1px solid var(--ise-navy-08);background:#fff">
+      <a href="#problem" onClick="{{ closeMenu }}" style-hover="color:var(--ise-blue)" style="padding:14px 4px;font-size:17px;font-weight:500;color:var(--color-text-body)">Problem</a>
+      <a href="#loesung" onClick="{{ closeMenu }}" style-hover="color:var(--ise-blue)" style="padding:14px 4px;font-size:17px;font-weight:500;color:var(--color-text-body)">Lösung</a>
+      <a href="#leistungen" onClick="{{ closeMenu }}" style-hover="color:var(--ise-blue)" style="padding:14px 4px;font-size:17px;font-weight:500;color:var(--color-text-body)">Leistungen</a>
+      <a href="#zusammenarbeit" onClick="{{ closeMenu }}" style-hover="color:var(--ise-blue)" style="padding:14px 4px;font-size:17px;font-weight:500;color:var(--color-text-body)">Ablauf</a>
+      <a href="#pakete" onClick="{{ closeMenu }}" style-hover="color:var(--ise-blue)" style="padding:14px 4px;font-size:17px;font-weight:500;color:var(--color-text-body)">Pakete</a>
+      <a href="#faq" onClick="{{ closeMenu }}" style-hover="color:var(--ise-blue)" style="padding:14px 4px;font-size:17px;font-weight:500;color:var(--color-text-body)">FAQ</a>
+      <a href="#kontakt" onClick="{{ closeMenu }}" style="margin-top:8px;display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:var(--radius-pill);background:var(--ise-navy);color:#fff;font-size:16px;font-weight:600" style-hover="background:var(--ise-gold);color:var(--ise-navy)">Erstgespräch vereinbaren</a>
+    </div>
+  </sc-if>
+  <div style="height:2px;background:var(--ise-gold);width:{{ progress }};transition:width .1s linear"></div>
+</header>
+
+<section id="start" style="position:relative;background:linear-gradient(120deg,var(--ise-bg-cyan) 0%,#cfe7f8 26%,#bcdcf5 50%,#dcf1fb 74%,#ffffff 100%);background-size:260% 260%;animation:iseDrift 16s ease-in-out infinite">
+  <div style="max-width:1160px;margin:0 auto;padding:96px 32px 88px;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center" data-hero data-pad>
+    <div data-hero-photo style="position:relative;order:2">
+      <img src="assets/ilgin-seren-evisen-portrait.webp" width="900" height="714" loading="eager" decoding="async" alt="Ilgın Seren Evişen, Kommunikationsberaterin für IT-, Software- und SaaS-Unternehmen" style="position:relative;display:block;width:100%;height:480px;object-fit:cover;border-radius:24px;box-shadow:var(--shadow-lg)">
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ise-teal);font-weight:700;margin-bottom:24px">Kommunikation für IT · Software · SaaS</div>
+      <h1 style="font-family:var(--font-display);font-weight:450;font-size:clamp(2.6rem,4.6vw,4.4rem);line-height:1.08;color:var(--ise-navy);margin:0 0 28px;letter-spacing:-.01em;text-wrap:balance">Menschen kaufen<br>von Menschen.</h1>
+      <p style="font-size:19px;line-height:1.62;color:var(--color-text-body);margin:0 0 20px;max-width:34em">Ich unterstütze IT-, Software- und SaaS-Unternehmen dabei, komplexe Technologien so zu kommunizieren, dass Geschäftsführer und Entscheider ihren Nutzen sofort verstehen – auf LinkedIn, in den Medien und überall dort, wo Vertrauen entsteht.</p>
+      <p style="font-family: var(--font-display); font-style:italic;font-size:25px;line-height:1.45; color: var(--ise-navy); margin: 0 0 36px">Denn Menschen kaufen keine Technik. Sie kaufen Lösungen. Und sie kaufen von Menschen, denen sie vertrauen.</p>
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+        <a href="#kontakt" style="display:inline-flex;align-items:center;padding:17px 36px;border-radius:var(--radius-pill);background:var(--ise-blue);color:#fff;font-size:17px;font-weight:600;box-shadow:var(--shadow-md)" data-hero-cta style-hover="background:var(--ise-navy);color:#fff">Kostenfreies Erstgespräch vereinbaren</a>
+        <a href="#pakete" style="font-size: 18px; font-weight: 600; color: var(--ise-navy); border-bottom: 1.5px solid var(--ise-gold); padding-bottom: 2px" style-hover="color:var(--ise-blue)">Pakete ansehen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="problem" style="background:#fff;border-top:1px solid var(--ise-navy-08)">
+  <div style="max-width:1160px;margin:0 auto;padding:104px 32px" data-pad>
+    <div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start" data-stack>
+      <div>
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--color-text-muted);margin-bottom:20px">Warum starke IT-Produkte unsichtbar bleiben</div>
+        <h2 style="font-family:var(--font-display);font-weight:450;font-size:var(--text-h2);line-height:1.15;color:var(--ise-navy);margin:0 0 24px">Kein Technologie­problem. Ein Sichtbarkeits­problem.</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0 0 18px">Sie haben viel Zeit, Geld und Know-how in Ihr Produkt investiert. Trotzdem erklären Vertrieb, Website und LinkedIn häufig vor allem Funktionen statt Nutzen.</p>
+        <p style="font-size:17px;line-height:1.65;margin:0 0 18px">Potenzielle Kunden fragen sich nicht: „Welche Technologie steckt dahinter?“ Sie fragen sich: „Löst das mein Problem?“ Wenn diese Antwort nicht innerhalb weniger Sekunden klar wird, verlieren selbst hervorragende Produkte an Wirkung.</p>
+        <p style="font-size:17px;line-height:1.65;margin:0;font-weight:600;color:var(--ise-navy)">Genau deshalb reicht gutes Marketing allein nicht aus. Kommunikation muss verständlich, glaubwürdig und menschlich sein.</p>
+      </div>
+
+      <div style="background:var(--ise-mist);border-radius:24px;padding:36px;box-shadow:var(--shadow-sm)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap">
+          <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ise-navy)">Der Übersetzungs-Test</div>
+          <div style="display:flex;background:#fff;border-radius:var(--radius-pill);padding:4px;box-shadow:inset 0 0 0 1px var(--ise-navy-08)">
+            <button type="button" onClick="{{ showFeature }}" style="border:none;cursor:pointer;font-family:var(--font-body);font-size:13px;font-weight:600;padding:8px 18px;border-radius:var(--radius-pill);transition:background-color .15s ease,color .15s ease;background:{{ featBg }};color:{{ featFg }}">So klingt es oft</button>
+            <button type="button" onClick="{{ showBenefit }}" style="border:none;cursor:pointer;font-family:var(--font-body);font-size:13px;font-weight:600;padding:8px 18px;border-radius:var(--radius-pill);transition:background-color .15s ease,color .15s ease;background:{{ benBg }};color:{{ benFg }}">So kommt es an</button>
+          </div>
+        </div>
+
+        <sc-if value="{{ isFeature }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:16px;animation:iseFade .35s ease both">
+            <div style="background:#fff;border-radius:16px;padding:22px 24px;font-size:16px;line-height:1.5;color:var(--color-text-muted)">„99,9 % Uptime durch redundante Cluster-Architektur.“</div>
+            <div style="background:#fff;border-radius:16px;padding:22px 24px;font-size:16px;line-height:1.5;color:var(--color-text-muted)">„KI-gestützte Datenpipeline mit Echtzeit-Ingestion.“</div>
+            <div style="background:#fff;border-radius:16px;padding:22px 24px;font-size:16px;line-height:1.5;color:var(--color-text-muted)">„Modulare API-first-Plattform, DSGVO-konform.“</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isBenefit }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:16px;animation:iseFade .35s ease both">
+            <div style="background:#fff;border-radius:16px;padding:22px 24px;font-size:16px;line-height:1.5;color:var(--ise-navy);font-weight:500;box-shadow:var(--shadow-teal)">„Ihr Betrieb läuft weiter – auch wenn etwas ausfällt.“</div>
+            <div style="background:#fff;border-radius:16px;padding:22px 24px;font-size:16px;line-height:1.5;color:var(--ise-navy);font-weight:500;box-shadow:var(--shadow-teal)">„Sie sehen heute, was sonst erst im Monatsreport steht.“</div>
+            <div style="background:#fff;border-radius:16px;padding:22px 24px;font-size:16px;line-height:1.5;color:var(--ise-navy);font-weight:500;box-shadow:var(--shadow-teal)">„Sie starten klein – und wachsen ohne Systemwechsel.“</div>
+          </div>
+        </sc-if>
+
+        <p style="margin:24px 0 0;font-size:14px;line-height:1.55;color:var(--color-text-muted)">Beide Aussagen beschreiben dasselbe Produkt. Nur eine davon beantwortet die Frage des Entscheiders.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="loesung" style="background:linear-gradient(120deg,var(--ise-navy) 0%,#0a4f8f 30%,#0b5d94 52%,#073a6b 76%,var(--ise-navy) 100%);background-size:260% 260%;animation:iseDrift 40s ease-in-out infinite;color:#fff">
+  <div style="max-width:1160px;margin:0 auto;padding:104px 32px" data-pad>
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ise-gold);margin-bottom:20px">Komplexe Technologie verständlich kommunizieren</div>
+    <h2 style="font-family:var(--font-display);font-weight:450;font-size:var(--text-h2);line-height:1.15;color:#fff;margin:0 0 28px;max-width:20em">Ich übersetze komplexe Technologien in Geschichten, Botschaften und Inhalte, die verstanden werden.</h2>
+    <p style="font-size:18px;line-height:1.65;color:rgba(255,255,255,.82);margin:0 0 56px;max-width:44em">Ich verbinde strategische PR, LinkedIn-Marketing und Positionierung mit einem klaren Blick auf Business Development.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch" data-stack>
+      <div style="background:rgba(255,255,255,.06);border-radius:24px;padding:40px">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ise-gold);margin-bottom:18px">Mein USP</div>
+        <p style="font-family:var(--font-display);font-style:italic;font-size:30px;line-height:1.25;color:#fff;margin:0 0 22px">Menschen folgen Menschen.</p>
+        <p style="font-size:16px;line-height:1.65;color:rgba(255,255,255,.82);margin:0">Deshalb arbeite ich nicht mit austauschbaren Werbefloskeln, sondern entwickle Kommunikation, die Vertrauen schafft.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border-radius:24px;padding:40px">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ise-gold);margin-bottom:18px">Netzwerk</div>
+        <p style="font-size:16px;line-height:1.65;color:rgba(255,255,255,.82);margin:0 0 24px">Zusätzlich bringe ich ein gewachsenes Netzwerk und eine außergewöhnlich starke LinkedIn-Community ein – ein Zugang, den viele klassische Agenturen nicht bieten.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:var(--radius-pill);background:rgba(255,255,255,.1);color:#fff">Wirtschaft</span>
+          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:var(--radius-pill);background:rgba(255,255,255,.1);color:#fff">Arbeitsmarkt</span>
+          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:var(--radius-pill);background:rgba(255,255,255,.1);color:#fff">Politik</span>
+          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:var(--radius-pill);background:rgba(255,255,255,.1);color:#fff">Medien</span>
+          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:var(--radius-pill);background:rgba(255,255,255,.1);color:#fff">Technologie</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leistungen" style="position:relative;background-image:url(assets/hintergrund-menschen.webp);background-size:cover;background-position:center;background-attachment:fixed">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(237,252,255,.72) 0%,rgba(255,255,255,.6) 100%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1160px;margin:0 auto;padding:104px 32px" data-pad>
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ise-teal);margin-bottom:20px">Leistungen für IT-, Software- und SaaS-Unternehmen</div>
+    <h2 style="font-family:var(--font-display);font-weight:450;font-size:var(--text-h2);line-height:1.15;color:var(--ise-navy);margin:0 0 20px;max-width:18em">Sechs Hebel, mit denen Ihr Unternehmen sichtbar wird.</h2>
+    <p style="font-size:17px;line-height:1.65;color:var(--color-text-body);margin:0 0 48px;max-width:38em">Je nach Ziel setzen wir dort an, wo die größte Wirkung entsteht – von der Analyse über die Positionierung bis zur laufenden Kommunikation.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px" data-grid3>
+      <div style="background:rgba(255,255,255,.82);border-radius:20px;padding:28px 30px;font-size:17px;font-weight:500;color:var(--ise-navy);line-height:1.4;box-shadow:var(--shadow-sm);transition:box-shadow .15s ease,background-color .15s ease" style-hover="background:#fff;box-shadow:var(--shadow-teal)">Kommunikations- und Positionierungsanalyse</div>
+      <div style="background:rgba(255,255,255,.82);border-radius:20px;padding:28px 30px;font-size:17px;font-weight:500;color:var(--ise-navy);line-height:1.4;box-shadow:var(--shadow-sm);transition:box-shadow .15s ease,background-color .15s ease" style-hover="background:#fff;box-shadow:var(--shadow-teal)">Schärfung Ihrer Kernbotschaften</div>
+      <div style="background:rgba(255,255,255,.82);border-radius:20px;padding:28px 30px;font-size:17px;font-weight:500;color:var(--ise-navy);line-height:1.4;box-shadow:var(--shadow-sm);transition:box-shadow .15s ease,background-color .15s ease" style-hover="background:#fff;box-shadow:var(--shadow-teal)">LinkedIn-Strategie für Unternehmen und Führungskräfte</div>
+      <div style="background:rgba(255,255,255,.82);border-radius:20px;padding:28px 30px;font-size:17px;font-weight:500;color:var(--ise-navy);line-height:1.4;box-shadow:var(--shadow-sm);transition:box-shadow .15s ease,background-color .15s ease" style-hover="background:#fff;box-shadow:var(--shadow-teal)">PR- und Medienkommunikation</div>
+      <div style="background:rgba(255,255,255,.82);border-radius:20px;padding:28px 30px;font-size:17px;font-weight:500;color:var(--ise-navy);line-height:1.4;box-shadow:var(--shadow-sm);transition:box-shadow .15s ease,background-color .15s ease" style-hover="background:#fff;box-shadow:var(--shadow-teal)">Content-Erstellung</div>
+      <div style="background:rgba(255,255,255,.82);border-radius:20px;padding:28px 30px;font-size:17px;font-weight:500;color:var(--ise-navy);line-height:1.4;box-shadow:var(--shadow-sm);transition:box-shadow .15s ease,background-color .15s ease" style-hover="background:#fff;box-shadow:var(--shadow-teal)">Sparring für Geschäftsführung und Vertrieb</div>
+    </div>
+  </div>
+</section>
+
+<section id="zusammenarbeit" style="background:#fff">
+  <div style="max-width:1160px;margin:0 auto;padding:104px 32px" data-pad>
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--color-text-muted);margin-bottom:20px">So läuft die Zusammenarbeit ab</div>
+    <h2 style="font-family:var(--font-display);font-weight:450;font-size:var(--text-h2);line-height:1.15;color:var(--ise-navy);margin:0 0 40px">In fünf Schritten von der Analyse zur Wirkung.</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px" data-steps>
+      <button type="button" onClick="{{ setStep0 }}" style="text-align:left;cursor:pointer;border:none;font-family:var(--font-body);border-radius:18px;padding:22px 20px;transition:background-color .15s ease;background:{{ st0bg }}">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;margin-bottom:10px;color:{{ st0num }}">01</div>
+        <div style="font-size:16px;font-weight:600;color:{{ st0fg }}">Kennenlernen</div>
+      </button>
+      <button type="button" onClick="{{ setStep1 }}" style="text-align:left;cursor:pointer;border:none;font-family:var(--font-body);border-radius:18px;padding:22px 20px;transition:background-color .15s ease;background:{{ st1bg }}">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;margin-bottom:10px;color:{{ st1num }}">02</div>
+        <div style="font-size:16px;font-weight:600;color:{{ st1fg }}">Analyse</div>
+      </button>
+      <button type="button" onClick="{{ setStep2 }}" style="text-align:left;cursor:pointer;border:none;font-family:var(--font-body);border-radius:18px;padding:22px 20px;transition:background-color .15s ease;background:{{ st2bg }}">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;margin-bottom:10px;color:{{ st2num }}">03</div>
+        <div style="font-size:16px;font-weight:600;color:{{ st2fg }}">Strategie</div>
+      </button>
+      <button type="button" onClick="{{ setStep3 }}" style="text-align:left;cursor:pointer;border:none;font-family:var(--font-body);border-radius:18px;padding:22px 20px;transition:background-color .15s ease;background:{{ st3bg }}">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;margin-bottom:10px;color:{{ st3num }}">04</div>
+        <div style="font-size:16px;font-weight:600;color:{{ st3fg }}">Umsetzung</div>
+      </button>
+      <button type="button" onClick="{{ setStep4 }}" style="text-align:left;cursor:pointer;border:none;font-family:var(--font-body);border-radius:18px;padding:22px 20px;transition:background-color .15s ease;background:{{ st4bg }}">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;margin-bottom:10px;color:{{ st4num }}">05</div>
+        <div style="font-size:16px;font-weight:600;color:{{ st4fg }}">Begleitung</div>
+      </button>
+    </div>
+    <div style="margin-top:18px;background:var(--ise-bg-cyan);border-radius:18px;padding:26px 30px;font-size:16px;line-height:1.6;color:var(--ise-navy)">
+      <sc-if value="{{ isStep0 }}" hint-placeholder-val="{{ true }}"><div style="animation:iseFade .3s ease both">Ein kostenfreies Erstgespräch: Wo stehen Sie, wohin wollen Sie, und wo hakt die Wahrnehmung Ihres Unternehmens?</div></sc-if>
+      <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ false }}"><div style="animation:iseFade .3s ease both">Website, LinkedIn und Kernbotschaften kommen auf den Prüfstand – aus der Perspektive Ihrer Entscheider, nicht Ihrer Technik.</div></sc-if>
+      <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}"><div style="animation:iseFade .3s ease both">Positionierung, Kernbotschaften und Kanäle werden zu einem Plan, der zu Ihren Zielen und Ihrem Vertrieb passt.</div></sc-if>
+      <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}"><div style="animation:iseFade .3s ease both">Inhalte, PR und LinkedIn-Kommunikation entstehen – persönlich erarbeitet, nicht aus dem Baukasten.</div></sc-if>
+      <sc-if value="{{ isStep4 }}" hint-placeholder-val="{{ false }}"><div style="animation:iseFade .3s ease both">Laufendes Sparring für Geschäftsführung und Vertrieb: nachsteuern, schärfen, Wirkung ausbauen.</div></sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="pakete" style="background:var(--ise-mist)">
+  <div style="max-width:1160px;margin:0 auto;padding:104px 32px" data-pad>
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--color-text-muted);margin-bottom:20px">Pakete und Preise für Kommunikationsberatung</div>
+    <h2 style="font-family:var(--font-display);font-weight:450;font-size:var(--text-h2);line-height:1.15;color:var(--ise-navy);margin:0 0 48px">Drei Wege, mit mir zu starten.</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch" data-grid3>
+      <div style="background:#fff;border-radius:24px;padding:36px 34px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;height:100%;box-sizing:border-box;transition:box-shadow .15s ease,transform .15s ease" style-hover="box-shadow:var(--shadow-lg)">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ise-teal);margin-bottom:14px">Paket 1</div>
+        <h3 style="font-family:var(--font-display);font-weight:450;font-size:26px;color:var(--ise-navy);margin:0 0 10px">Kommunikationscheck</h3>
+        <div style="font-family:var(--font-mono);font-size:24px;color:var(--ise-navy);margin:0 0 22px">1.000 €</div>
+        <p style="font-size:16px;line-height:1.6;margin:0">Analyse von Website, LinkedIn und Kernbotschaften, konkreter Maßnahmenplan und Abschlussgespräch.</p>
+      </div>
+
+      <div style="background:var(--ise-bg-cyan);border-radius:24px;padding:36px 34px;box-shadow:var(--shadow-teal);position:relative;display:flex;flex-direction:column;height:100%;box-sizing:border-box;transition:box-shadow .15s ease" style-hover="box-shadow:var(--shadow-lg)">
+        <div style="position:absolute;top:-13px;left:34px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--ise-gold);color:var(--ise-navy);padding:6px 14px;border-radius:var(--radius-pill);font-weight:600">Meist gewählt</div>
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ise-teal);margin-bottom:14px">Paket 2</div>
+        <h3 style="font-family:var(--font-display);font-weight:450;font-size:26px;color:var(--ise-navy);margin:0 0 10px">Sichtbarkeit</h3>
+        <div style="font-family:var(--font-mono);font-size:24px;color:var(--ise-navy);margin:0 0 22px">3.000 €</div>
+        <p style="font-size:16px;line-height:1.6;margin:0">Kommunikationscheck, Positionierung, LinkedIn-Strategie, Redaktionsplan und vier professionelle LinkedIn-Beiträge.</p>
+      </div>
+
+      <div style="background:var(--ise-navy);border-radius:24px;padding:36px 34px;box-shadow:var(--shadow-md);display:flex;flex-direction:column;height:100%;box-sizing:border-box;transition:box-shadow .15s ease" style-hover="box-shadow:var(--shadow-lg)">
+        <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ise-gold);margin-bottom:14px">Paket 3</div>
+        <h3 style="font-family:var(--font-display);font-weight:450;font-size:26px;color:#fff;margin:0 0 10px">Strategische Partnerschaft</h3>
+        <div style="font-family:var(--font-mono);font-size:24px;color:#fff;margin:0 0 22px">ab 5.000 €</div>
+        <p style="font-size:16px;line-height:1.6;margin:0;color:rgba(255,255,255,.82)">Laufende Beratung, PR, LinkedIn-Kommunikation, Sparring für Geschäftsführung, Content, Positionierung und individuelle Begleitung über mehrere Wochen.</p>
+      </div>
+    </div>
+    <p style="margin:28px 0 0;font-size:14px;color:var(--color-text-muted)">Alle Preise verstehen sich als Richtwerte und können je nach Projektumfang angepasst werden.</p>
+  </div>
+</section>
+
+<section id="vertrauen" style="position:relative;background-image:url(assets/hintergrund-blau.webp);background-size:cover;background-position:center;background-attachment:fixed" data-fixedbg>
+  <div style="position:absolute;inset:0;background:rgba(8,64,118,.55);pointer-events:none"></div>
+  <div style="position:relative;max-width:1160px;margin:0 auto;padding:104px 32px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center" data-pad data-stack>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ise-gold);margin-bottom:20px">Erfahrung, Referenzen und Kundenstimmen</div>
+      <h2 style="font-family:var(--font-display);font-weight:450;font-size:var(--text-h2);line-height:1.15;color:#fff;margin:0 0 24px">Journalistisches Denken, strategische Kommunikation.</h2>
+      <p style="font-size:17px;line-height:1.65;color:rgba(255,255,255,.9);margin:0 0 18px">Ich verbinde journalistisches Denken mit strategischer Kommunikation und langjähriger Erfahrung in Wirtschaft, Arbeitsmarkt und Digitalisierung.</p>
+      <p style="font-size:17px;line-height:1.65;color:rgba(255,255,255,.9);margin:0">Ich kenne die Perspektive von Geschäftsführern, Medien und Entscheidern – und weiß, wie Botschaften formuliert sein müssen, damit sie Wirkung entfalten.</p>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:16px">Referenzen &amp; Kundenstimmen</div>
+      <div data-logos style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px">
+        <div style="height:72px;border-radius:14px;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--color-text-muted)">Logo</div>
+        <div style="height:72px;border-radius:14px;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--color-text-muted)">Logo</div>
+        <div style="height:72px;border-radius:14px;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--color-text-muted)">Logo</div>
+        <div style="height:72px;border-radius:14px;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--color-text-muted)">Logo</div>
+        <div style="height:72px;border-radius:14px;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--color-text-muted)">Logo</div>
+        <div style="height:72px;border-radius:14px;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--color-text-muted)">Logo</div>
+      </div>
+      <div style="background:#fff;border-radius:20px;padding:28px 30px;box-shadow:var(--shadow-md)">
+        <p style="font-family:var(--font-display);font-style:italic;font-size:19px;line-height:1.45;color:var(--ise-navy);margin:0 0 14px">Platz für ein Kundenzitat – zwei bis drei Sätze über die Zusammenarbeit und das Ergebnis.</p>
+        <div style="font-size:14px;color:var(--color-text-muted)">Name, Funktion, Unternehmen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--ise-navy)">
+  <div style="max-width:900px;margin:0 auto;padding:100px 32px;text-align:center" data-pad>
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ise-gold);margin-bottom:24px">Was gute Kommunikation wert ist</div>
+    <p style="font-family:var(--font-display);font-weight:450;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.25;color:#fff;margin:0 0 26px">Gute Kommunikation kostet Geld. Missverständliche Kommunikation kostet häufig deutlich mehr.</p>
+    <p style="font-size:17px;line-height:1.65;color:rgba(255,255,255,.82);margin:0 0 12px">Weil Chancen verloren gehen, Verkaufsprozesse länger dauern oder Vertrauen gar nicht erst entsteht.</p>
+    <p style="font-size:17px;line-height:1.65;color:rgba(255,255,255,.82);margin:0 0 36px">Meine Arbeit soll sich auszahlen: durch bessere Wahrnehmung, mehr Vertrauen und qualifizierte Anfragen.</p>
+    <a href="#kontakt" style="display:inline-flex;align-items:center;padding:17px 36px;border-radius:var(--radius-pill);background:var(--ise-gold);color:var(--ise-navy);font-size:17px;font-weight:600" style-hover="background:#d99a00;color:var(--ise-navy)">Lassen Sie uns unverbindlich über Ihre Ziele sprechen</a>
+  </div>
+</section>
+
+<section id="faq" style="background:#fff">
+  <div style="max-width:860px;margin:0 auto;padding:104px 32px" data-pad>
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--color-text-muted);margin-bottom:20px">Häufige Fragen zu PR, LinkedIn und Positionierung</div>
+    <h2 style="font-family:var(--font-display);font-weight:450;font-size:var(--text-h2);line-height:1.15;color:var(--ise-navy);margin:0 0 40px">FAQ</h2>
+
+    <div style="border-top:1px solid var(--ise-navy-16)">
+      <button type="button" onClick="{{ toggleFaq0 }}" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:var(--font-body);padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:24px">
+        <span style="font-size:18px;font-weight:600;color:var(--ise-navy)">Warum brauche ich Kommunikation, wenn mein Produkt gut ist?</span>
+        <span style="font-family:var(--font-mono);font-size:20px;color:var(--ise-teal);transition:transform .2s ease;transform:{{ faq0rot }}">+</span>
+      </button>
+      <sc-if value="{{ faq0 }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 26px;font-size:17px;line-height:1.65;max-width:56em;animation:iseFade .25s ease both">Weil selbst das beste Produkt gekauft werden muss – und dafür muss sein Nutzen verstanden werden.</p></sc-if>
+    </div>
+    <div style="border-top:1px solid var(--ise-navy-16)">
+      <button type="button" onClick="{{ toggleFaq1 }}" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:var(--font-body);padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:24px">
+        <span style="font-size:18px;font-weight:600;color:var(--ise-navy)">Warum LinkedIn?</span>
+        <span style="font-family:var(--font-mono);font-size:20px;color:var(--ise-teal);transition:transform .2s ease;transform:{{ faq1rot }}">+</span>
+      </button>
+      <sc-if value="{{ faq1 }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 26px;font-size:17px;line-height:1.65;max-width:56em;animation:iseFade .25s ease both">Weil dort viele Geschäftsführer, Investoren, Partner und Kunden täglich Entscheidungen vorbereiten.</p></sc-if>
+    </div>
+    <div style="border-top:1px solid var(--ise-navy-16)">
+      <button type="button" onClick="{{ toggleFaq2 }}" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:var(--font-body);padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:24px">
+        <span style="font-size:18px;font-weight:600;color:var(--ise-navy)">Arbeiten Sie mit Standardlösungen?</span>
+        <span style="font-family:var(--font-mono);font-size:20px;color:var(--ise-teal);transition:transform .2s ease;transform:{{ faq2rot }}">+</span>
+      </button>
+      <sc-if value="{{ faq2 }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 26px;font-size:17px;line-height:1.65;max-width:56em;animation:iseFade .25s ease both">Nein. Jedes Unternehmen erhält eine individuelle Strategie.</p></sc-if>
+    </div>
+    <div style="border-top:1px solid var(--ise-navy-16);border-bottom:1px solid var(--ise-navy-16)">
+      <button type="button" onClick="{{ toggleFaq3 }}" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:var(--font-body);padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:24px">
+        <span style="font-size:18px;font-weight:600;color:var(--ise-navy)">Arbeiten Sie selbst an den Inhalten?</span>
+        <span style="font-family:var(--font-mono);font-size:20px;color:var(--ise-teal);transition:transform .2s ease;transform:{{ faq3rot }}">+</span>
+      </button>
+      <sc-if value="{{ faq3 }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 26px;font-size:17px;line-height:1.65;max-width:56em;animation:iseFade .25s ease both">Ja. Persönliche Zusammenarbeit statt Massenabfertigung.</p></sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" style="background:var(--ise-bg-cyan)">
+  <div style="max-width:1160px;margin:0 auto;padding:104px 32px;display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center" data-pad data-stack>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ise-teal);margin-bottom:20px">Erstgespräch für IT- und SaaS-Unternehmen</div>
+      <h2 style="font-family:var(--font-display);font-weight:450;font-size:clamp(2rem,3.4vw,3rem);line-height:1.15;color:var(--ise-navy);margin:0 0 26px">Technologie kann beeindrucken.<br>Vertrauen entscheidet.</h2>
+      <p style="font-size:18px;line-height:1.65;margin:0 0 32px;max-width:36em">Wenn Sie möchten, dass potenzielle Kunden den Wert Ihrer Lösung schneller erkennen, Ihre Marke stärker wahrnehmen und Ihr Unternehmen mit Kompetenz verbinden, dann freue ich mich auf unser Gespräch.</p>
+      <img src="assets/ise-logo-trimmed.png" alt="Ilgın Seren Evişen" style="height:100px;width:auto;display:block">
+    </div>
+
+    <div style="background:#fff;border-radius:24px;padding:40px;box-shadow:var(--shadow-md)">
+      <h3 style="font-family:var(--font-display);font-weight:450;font-size:26px;color:var(--ise-navy);margin:0 0 8px">Jetzt Erstgespräch vereinbaren</h3>
+      <p style="font-size:15px;line-height:1.6;color:var(--color-text-muted);margin:0 0 26px">Kostenfrei und unverbindlich. Schreiben Sie mir, rufen Sie an oder schreiben Sie mir direkt auf LinkedIn – ich melde mich innerhalb von zwei Werktagen.</p>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <a href="mailto:ilginseren.evisen@gmx.de?subject=Anfrage%20Erstgespr%C3%A4ch" style="display:inline-flex;align-items:center;justify-content:center;padding:17px 28px;border-radius:var(--radius-pill);background:var(--ise-blue);color:#fff;font-size:17px;font-weight:600;box-shadow:var(--shadow-md)" style-hover="background:var(--ise-navy);color:#fff">ilginseren.evisen@gmx.de</a>
+        <a href="tel:+4917621514813" style="display:inline-flex;align-items:center;justify-content:center;padding:15px 28px;border-radius:var(--radius-pill);background:var(--ise-mist);color:var(--ise-navy);font-size:17px;font-weight:600" style-hover="box-shadow:inset 0 0 0 1px var(--ise-navy-16)">0176 21514813</a>
+        <a href="https://www.linkedin.com/in/ilg%C4%B1n-seren-evi%C5%9Fen-467279132/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:15px 28px;border-radius:var(--radius-pill);background:var(--ise-mist);color:var(--ise-navy);font-size:17px;font-weight:600" style-hover="box-shadow:inset 0 0 0 1px var(--ise-navy-16)">Per LinkedIn schreiben</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--ise-navy)">
+  <div style="max-width:1160px;margin:0 auto;padding:40px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)">Ilgın Seren Evişen · Kommunikationsberatung</div>
+    <div style="display:flex;gap:26px">
+      <a href="#start" style="font-size:14px;color:rgba(255,255,255,.7)" style-hover="color:#fff">Nach oben</a>
+      <a href="#kontakt" style="font-size:14px;color:rgba(255,255,255,.7)" style-hover="color:#fff">Kontakt</a>
+      <a href="https://www.linkedin.com/in/ilg%C4%B1n-seren-evi%C5%9Fen-467279132/" target="_blank" rel="noopener noreferrer" style="font-size:14px;color:rgba(255,255,255,.7)" style-hover="color:#fff">LinkedIn</a>
+      <a href="impressum.html" style="font-size:14px;color:rgba(255,255,255,.7)" style-hover="color:#fff">Impressum</a>
+      <a href="datenschutz.html" style="font-size:14px;color:rgba(255,255,255,.7)" style-hover="color:#fff">Datenschutz</a>
+      <button type="button" onClick="{{ openCookieSettings }}" style="border:none;background:none;cursor:pointer;font-family:var(--font-body);padding:0;font-size:14px;color:rgba(255,255,255,.7)" style-hover="color:#fff">Cookie-Einstellungen</button>
+    </div>
+  </div>
+</footer>
+
+<sc-if value="{{ showBar }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.96);border-top:1px solid var(--ise-navy-08);box-shadow:0 -8px 24px rgba(8,64,118,.06);animation:iseFade .3s ease both">
+    <div style="max-width:1160px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <div style="font-size:15px;color:var(--ise-navy);font-weight:500">Menschen kaufen von Menschen. Lassen Sie uns sprechen.</div>
+      <a href="#kontakt" style="display:inline-flex;align-items:center;padding:12px 26px;border-radius:var(--radius-pill);background:var(--ise-blue);color:#fff;font-size:15px;font-weight:600" style-hover="background:var(--ise-navy);color:#fff">Kostenfreies Erstgespräch</a>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ showCookieBanner }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--ise-navy);box-shadow:0 -8px 24px rgba(8,64,118,.18);animation:iseFade .3s ease both">
+    <div style="max-width:1160px;margin:0 auto;padding:22px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <div style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.88);max-width:56em">Diese Website setzt aktuell nur technisch notwendige Speicherung ein, um Ihre Auswahl hier zu merken. Sobald optionale Cookies (z.&nbsp;B. für Analyse) hinzukommen, werden diese erst nach Ihrer Zustimmung aktiv. Mehr dazu in unserer <a href="datenschutz.html" style="color:#fff;text-decoration:underline">Datenschutzerklärung</a>.</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <button type="button" onClick="{{ declineCookies }}" style="border:none;cursor:pointer;font-family:var(--font-body);padding:12px 24px;border-radius:var(--radius-pill);background:rgba(255,255,255,.12);color:#fff;font-size:15px;font-weight:600" style-hover="background:rgba(255,255,255,.2)">Nur notwendige</button>
+        <button type="button" onClick="{{ acceptCookies }}" style="border:none;cursor:pointer;font-family:var(--font-body);padding:12px 26px;border-radius:var(--radius-pill);background:var(--ise-gold);color:var(--ise-navy);font-size:15px;font-weight:600" style-hover="background:#d99a00">Alle akzeptieren</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;minFontSize&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:15,&quot;min&quot;:12,&quot;max&quot;:20,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Typografie&quot;},&quot;showStickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Conversion&quot;},&quot;defaultTranslator&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;feature&quot;,&quot;benefit&quot;],&quot;default&quot;:&quot;feature&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Conversion&quot;}}">
+class Component extends DCLogic {
+  state = { mode: this.props.defaultTranslator === "benefit" ? "benefit" : "feature", step: 0, faq: -1, progress: 0, showBar: false, cookieConsent: null };
+
+  enforceMinFont() {
+    const min = Number(this.props.minFontSize ?? 15);
+    const root = this._root;
+    if (!root) return;
+    let sheet = document.getElementById("ise-minfont");
+    if (!sheet) {
+      sheet = document.createElement("style");
+      sheet.id = "ise-minfont";
+      document.head.appendChild(sheet);
+    }
+    sheet.textContent = "[data-ise-min]{font-size:" + min + "px !important}";
+    const els = root.querySelectorAll("*");
+    els.forEach((el) => el.removeAttribute("data-ise-min"));
+    els.forEach((el) => {
+      const size = parseFloat(getComputedStyle(el).fontSize) || 0;
+      if (size && size < min) el.setAttribute("data-ise-min", "");
+    });
+  }
+
+  componentDidUpdate() { this.enforceMinFont(); }
+
+  componentDidMount() {
+    this._root = document.querySelector("#dc-root") || document.body;
+    requestAnimationFrame(() => this.enforceMinFont());
+    const storedConsent = window.localStorage.getItem("ise_cookie_consent");
+    if (storedConsent === "accepted" || storedConsent === "declined") this.setState({ cookieConsent: storedConsent });
+    this._onScroll = () => {
+      const d = document.documentElement;
+      const max = d.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(100, Math.round((window.scrollY / max) * 100)) : 0;
+      this.setState({ progress: p, showBar: window.scrollY > 900 && p < 92 });
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener("scroll", this._onScroll); }
+
+  renderVals() {
+    const s = this.state;
+    const on = { background: "var(--ise-navy)", fg: "#fff" };
+    const stepVals = {};
+    for (let i = 0; i < 5; i++) {
+      const a = s.step === i;
+      stepVals["st" + i + "bg"] = a ? "var(--ise-navy)" : "var(--ise-mist)";
+      stepVals["st" + i + "fg"] = a ? "#fff" : "var(--ise-navy)";
+      stepVals["st" + i + "num"] = a ? "var(--ise-gold)" : "var(--color-text-muted)";
+      stepVals["isStep" + i] = s.step === i;
+      stepVals["setStep" + i] = () => this.setState({ step: i });
+    }
+    const faqVals = {};
+    for (let i = 0; i < 4; i++) {
+      faqVals["faq" + i] = s.faq === i;
+      faqVals["faq" + i + "rot"] = s.faq === i ? "rotate(45deg)" : "rotate(0deg)";
+      faqVals["toggleFaq" + i] = () => this.setState({ faq: s.faq === i ? -1 : i });
+    }
+    return {
+      ...stepVals, ...faqVals,
+      isFeature: s.mode === "feature",
+      isBenefit: s.mode === "benefit",
+      featBg: s.mode === "feature" ? on.background : "transparent",
+      featFg: s.mode === "feature" ? on.fg : "var(--color-text-muted)",
+      benBg: s.mode === "benefit" ? "var(--ise-teal)" : "transparent",
+      benFg: s.mode === "benefit" ? "#fff" : "var(--color-text-muted)",
+      showFeature: () => this.setState({ mode: "feature" }),
+      showBenefit: () => this.setState({ mode: "benefit" }),
+      menuOpen: !!s.menuOpen,
+      toggleMenu: () => this.setState((p) => ({ menuOpen: !p.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      progress: s.progress + "%",
+      showBar: s.showBar && (this.props.showStickyCta ?? true) && s.cookieConsent !== null,
+      showCookieBanner: s.cookieConsent === null,
+      acceptCookies: () => { window.localStorage.setItem("ise_cookie_consent", "accepted"); this.setState({ cookieConsent: "accepted" }); },
+      declineCookies: () => { window.localStorage.setItem("ise_cookie_consent", "declined"); this.setState({ cookieConsent: "declined" }); },
+      openCookieSettings: () => this.setState({ cookieConsent: null }),
+    };
+  }
+}
+</script>
+</body>
+</html>
