@@ -26,8 +26,9 @@ a:hover{color:var(--color-link-hover)}
 @media (prefers-reduced-motion:reduce){*{animation:none !important}}
 @media (max-width:900px){
 html{scroll-padding-top:96px}
-[data-hero]{grid-template-columns:1fr !important;gap:36px !important}
-[data-hero-photo]{order:-1 !important}
+[data-hero-bg]{display:block !important;min-height:0 !important}
+[data-hero-img]{position:static !important;display:block !important;width:100% !important;height:300px !important;object-position:95% center !important;transform:none !important;border-radius:24px !important;margin-bottom:10px !important}
+[data-hero-panel]{max-width:100% !important;padding:32px 26px !important}
 [data-pad]{padding-left:20px !important;padding-right:20px !important;padding-top:64px !important;padding-bottom:64px !important}
 [data-stack]{grid-template-columns:1fr !important;gap:36px !important}
 [data-grid3]{grid-template-columns:1fr !important}
@@ -37,7 +38,6 @@ html{scroll-padding-top:96px}
 [data-burger]{display:inline-flex !important}
 [data-headbar]{padding:10px 20px !important}
 [data-headbar] img{height:64px !important}
-#start img[alt^="Ilg"]{height:300px !important}
 [data-hero-cta]{width:100% !important;justify-content:center !important}
 [data-logos]{grid-template-columns:1fr 1fr !important}
 }
@@ -81,19 +81,17 @@ html{scroll-padding-top:96px}
   <div style="height:2px;background:var(--ise-gold);width:{{ progress }};transition:width .1s linear"></div>
 </header>
 
-<section id="start" style="position:relative;background:linear-gradient(120deg,var(--ise-bg-cyan) 0%,#cfe7f8 26%,#bcdcf5 50%,#dcf1fb 74%,#ffffff 100%);background-size:260% 260%;animation:iseDrift 16s ease-in-out infinite">
-  <div style="max-width:1160px;margin:0 auto;padding:96px 32px 88px;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center" data-hero data-pad>
-    <div data-hero-photo style="position:relative;order:2">
-      <img src="assets/ilgin-seren-evisen-portrait.webp" width="900" height="714" loading="eager" decoding="async" alt="Ilgın Seren Evişen, Kommunikationsberaterin für IT-, Software- und SaaS-Unternehmen" style="position:relative;display:block;width:100%;height:480px;object-fit:cover;border-radius:24px;box-shadow:var(--shadow-lg)">
-    </div>
-    <div>
-      <div style="font-family:var(--font-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ise-teal);font-weight:700;margin-bottom:24px">Kommunikation für IT · Software · SaaS</div>
-      <h1 style="font-family:var(--font-display);font-weight:450;font-size:clamp(2.6rem,4.6vw,4.4rem);line-height:1.08;color:var(--ise-navy);margin:0 0 28px;letter-spacing:-.01em;text-wrap:balance">Menschen kaufen<br>von Menschen.</h1>
-      <p style="font-size:19px;line-height:1.62;color:var(--color-text-body);margin:0 0 20px;max-width:34em">Ich unterstütze IT-, Software- und SaaS-Unternehmen dabei, komplexe Technologien so zu kommunizieren, dass Geschäftsführer und Entscheider ihren Nutzen sofort verstehen – auf LinkedIn, in den Medien und überall dort, wo Vertrauen entsteht.</p>
-      <p style="font-family: var(--font-display); font-style:italic;font-size:25px;line-height:1.45; color: var(--ise-navy); margin: 0 0 36px">Denn Menschen kaufen keine Technik. Sie kaufen Lösungen. Und sie kaufen von Menschen, denen sie vertrauen.</p>
+<section id="start" data-hero-bg style="position:relative;overflow:hidden;min-height:640px;display:flex;align-items:center">
+  <img data-hero-img src="assets/evisen_kommunikation.jpg" loading="eager" decoding="async" alt="Ilgın Seren Evişen, Kommunikationsberaterin für IT-, Software- und SaaS-Unternehmen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:77% 15%;z-index:0">
+  <div style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:96px 32px 88px;box-sizing:border-box;width:100%" data-pad>
+    <div data-hero-panel style="position:relative;background:rgba(8,64,118,.78);border-radius:24px;padding:48px 44px;max-width:480px;box-shadow:var(--shadow-lg)">
+      <div style="font-family:var(--font-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ise-gold);font-weight:700;margin-bottom:24px">Kommunikation für IT · Software · SaaS</div>
+      <h1 style="font-family:var(--font-display);font-weight:450;font-size:clamp(2.6rem,4.6vw,4.4rem);line-height:1.08;color:#fff;margin:0 0 28px;letter-spacing:-.01em;text-wrap:balance">Menschen kaufen<br>von Menschen.</h1>
+      <p style="font-size:19px;line-height:1.62;color:rgba(255,255,255,.9);margin:0 0 20px;max-width:34em">Ich unterstütze IT-, Software- und SaaS-Unternehmen dabei, komplexe Technologien so zu kommunizieren, dass Geschäftsführer und Entscheider ihren Nutzen sofort verstehen – auf LinkedIn, in den Medien und überall dort, wo Vertrauen entsteht.</p>
+      <p style="font-family: var(--font-display); font-style:italic;font-size:25px;line-height:1.45; color: #fff; margin: 0 0 36px">Denn Menschen kaufen keine Technik. Sie kaufen Lösungen. Und sie kaufen von Menschen, denen sie vertrauen.</p>
       <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
-        <a href="#kontakt" style="display:inline-flex;align-items:center;padding:17px 36px;border-radius:var(--radius-pill);background:var(--ise-blue);color:#fff;font-size:17px;font-weight:600;box-shadow:var(--shadow-md)" data-hero-cta style-hover="background:var(--ise-navy);color:#fff">Kostenfreies Erstgespräch vereinbaren</a>
-        <a href="#pakete" style="font-size: 18px; font-weight: 600; color: var(--ise-navy); border-bottom: 1.5px solid var(--ise-gold); padding-bottom: 2px" style-hover="color:var(--ise-blue)">Pakete ansehen</a>
+        <a href="#kontakt" style="display:inline-flex;align-items:center;padding:17px 36px;border-radius:var(--radius-pill);background:var(--ise-blue);color:#fff;font-size:17px;font-weight:600;box-shadow:var(--shadow-md)" data-hero-cta style-hover="background:var(--ise-gold);color:var(--ise-navy)">Kostenfreies Erstgespräch vereinbaren</a>
+        <a href="#pakete" style="font-size: 18px; font-weight: 600; color: #fff; border-bottom: 1.5px solid var(--ise-gold); padding-bottom: 2px" style-hover="color:var(--ise-gold)">Pakete ansehen</a>
       </div>
     </div>
   </div>
